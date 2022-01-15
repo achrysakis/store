@@ -1,0 +1,13 @@
+@import './Variables.scss';
+
+%flex-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  @extend %flex-box;
+  flex: 1;
+  background-color: $primary-background;
+}
