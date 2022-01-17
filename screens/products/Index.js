@@ -1,19 +1,27 @@
 import React from 'react';
-import { FlatList, Text, View } from 'react-native';
-import AppStyles from '../../assets/styles/App.scss';
+import { FlatList } from 'react-native';
 import { useSelector } from 'react-redux';
+import ListItem from '../../components/products/ListItem';
 
-const ProductsIndex = () => {
+const ProductsIndex = props => {
   const products = useSelector(state => state.products.allProducts);
-  console.log(products)
+
   return (
-    <View>
-      <Text>Hello</Text>
     <FlatList 
+      numColumns={1} 
       data={products} 
-      renderItem={itemData => <Text>{itemData.item.title}</Text>} 
-      />
-    </View>
+      renderItem={
+        ({ item }) => (
+          <ListItem 
+            product={item} 
+            onViewDetail={() => {               
+              props.navigation.navigate('ProductsShow', {
+                productId: item.id
+              });
+            }}
+          />    
+        )}
+    />
   );
 }
 export default ProductsIndex;
