@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import * as Font from 'expo-font';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
+import AppLoading from 'expo-app-loading';
 
 import productsReducer from './store/reducers/products';
+import cartReducer from './store/reducers/cart';
+
 import Navigator from './navigation/navigator';
 
 import * as Localization from 'expo-localization';
@@ -17,10 +21,30 @@ i18n.locale = Localization.locale;
 const store = createStore(
   combineReducers({
     products: productsReducer,
+    cart: cartReducer
   })
 );
 
+const fetchFonts = () => {
+  return Font.loadAsync({
+    'roboto': require('./assets/fonts/Roboto-Regular.ttf'),
+    'roboto-bold': require('./assets/fonts/Roboto-Bold.ttf')
+  });
+};
+
 const App = () => {
+  const [fontLoaded, setFontLoaded] = useState(false);
+
+  if (!fontLoaded) {
+    return (
+      <AppLoading
+        startAsync={fetchFonts}
+        onFinish={() => setFontLoaded(true)}
+        onError={(err) => console.log(err)}
+      />
+    );
+  }
+
   return (
     <SafeAreaProvider>
       <Provider store={store}>

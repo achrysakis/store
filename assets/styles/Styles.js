@@ -2,8 +2,13 @@ import { StyleSheet } from 'react-native';
 import Variables from './Variables';
 
 const Styles = StyleSheet.create({
+  header: {
+    fontFamily: "roboto-bold",
+    color: Variables.black
+  },
   container: {
     paddingHorizontal: 10,
+    fontFamily: 'roboto'
   },
   imageContainer: {
     width: "100%",
@@ -25,11 +30,13 @@ const Styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 18,
     marginTop: 5,
-    marginBottom: 10
+    marginBottom: 10,
+    fontFamily: 'roboto-bold'
   },
   h4: {
     fontSize: 14,
-    color: "#888"
+    color: "#888",
+    fontFamily: 'roboto'
   },  
   button: {
     backgroundColor: Variables.primary,
@@ -37,7 +44,8 @@ const Styles = StyleSheet.create({
     paddingVertical: 1,
     borderRadius: 5,
     flex: 1,
-    margin: 10
+    margin: 10,
+    fontFamily: 'roboto'
   },
 
   productListItem: {
@@ -50,16 +58,19 @@ const Styles = StyleSheet.create({
     backgroundColor: 'white',
     margin: 10,
     textAlign: 'center',
+    fontFamily: 'roboto'
   },
   productListItemContent: {
     alignItems: "center",
-    padding: 10
+    padding: 10,
+    fontFamily: 'roboto'
   },
 
   productListItemActions: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    fontFamily: 'roboto'
   },
 
 });

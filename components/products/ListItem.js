@@ -1,9 +1,10 @@
 import React from 'react';
 import { Image, Text, View, Button, TouchableOpacity } from 'react-native';
 import Styles from '../../assets/styles/Styles';
-import Variables from '../../assets/styles/Variables';
 import ImageComponent from '../various/ImageComponent';
 import ButtonComponent from '../various/ButtonComponent';
+import i18n from 'i18n-js';
+
 
 
 const ListItem = props => {
@@ -19,8 +20,8 @@ const ListItem = props => {
             <Text style={Styles.h4}>${props.product.price.toFixed(2)}</Text>
           </View>
           <View style={Styles.productListItemActions}>
-            <ButtonComponent title="View details" onPress={props.onViewDetail} />
-            <ButtonComponent title="To cart" onPress={props.onAddToCart} />
+            <ButtonComponent title={i18n.t("view_details")} onPress={props.onViewDetail} />
+            <ButtonComponent title={i18n.t("add_to_cart")} onPress={props.onAddToCart} />
           </View>
         </TouchableOpacity>
       </View>
