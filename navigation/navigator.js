@@ -3,6 +3,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Icon } from 'react-native-elements';
+import { View, Text, TouchableWithoutFeedback } from 'react-native';
+import { useSelector } from 'react-redux';
 
 import i18n from 'i18n-js';
 
@@ -30,22 +32,35 @@ const Cart = () => {
 
 const ProductsNavigator = createNativeStackNavigator();
 const Products = () => {
+  const total_products = useSelector(state => state.cart.total_products);
   return (
     <ProductsNavigator.Navigator
       screenOptions={({navigation}) => ({
         headerTitleStyle: Styles.header,
         headerTintColor: Variables.black,
         headerRight: () => (
-          <Icon
-            name='ios-cart'
-            type='ionicon'
-            color={Variables.black}
-            style={Styles.header}
+          <TouchableWithoutFeedback
             onPress={() => {
               navigation.navigate({name: 'Cart'});
-             
-            }}
-          />
+            }}          
+          >
+            <View>
+              {total_products > 0 ?
+              <View style={Styles.basketContainer}>
+                <Text style={Styles.basket}>
+                  {total_products > 0 ? total_products : ''}
+                </Text>
+              </View>
+              : null}
+
+              <Icon
+                name='ios-cart'
+                type='ionicon'
+                color={Variables.black}
+                style={Styles.header}
+              />
+            </View>
+          </TouchableWithoutFeedback>
         ),          
       })}      
     >

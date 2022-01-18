@@ -33,13 +33,15 @@ const ProductsShow = props => {
             dispatch(cartActions.addProduct(product))
           }} 
         />
+      </View>
+      <View style={Styles.container}>
         <View style={Styles.center}>
           <Text style={Styles.h2}>{product.title}</Text>
         </View>
         <View>
           <Text>{product.description}</Text>
-        </View>      
-      </View>
+        </View>    
+      </View>  
     </ScrollView>
 
   );

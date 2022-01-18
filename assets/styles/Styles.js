@@ -1,4 +1,5 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
+import { changeQuantity } from '../../store/actions/cart';
 import Variables from './Variables';
 
 const Styles = StyleSheet.create({
@@ -6,9 +7,13 @@ const Styles = StyleSheet.create({
     fontFamily: "roboto-bold",
     color: Variables.black
   },
+  main: {
+    backgroundColor: Variables.white
+  },
   container: {
     paddingHorizontal: 10,
-    fontFamily: 'roboto'
+    marginVertical: 10,
+    fontFamily: 'roboto',
   },
   imageContainer: {
     width: "100%",
@@ -33,6 +38,11 @@ const Styles = StyleSheet.create({
     marginBottom: 10,
     fontFamily: 'roboto-bold'
   },
+  h3: {
+    fontSize: 14,
+    marginBottom: 10,
+    fontFamily: 'roboto'
+  },  
   h4: {
     fontSize: 14,
     color: "#888",
@@ -43,35 +53,67 @@ const Styles = StyleSheet.create({
     paddingHorizontal: 5,
     paddingVertical: 1,
     borderRadius: 5,
-    flex: 1,
-    margin: 10,
+    marginHorizontal: 5,
     fontFamily: 'roboto'
   },
 
   productListItem: {
-    shadowColor: 'black',
-    shadowOpacity: 0.26,
-    shadowOffset: {width: 0, height: 2},
-    shadowRadius: 8,
-    elevation: 5,
-    borderRadius: 10,
     backgroundColor: 'white',
-    margin: 10,
-    textAlign: 'center',
-    fontFamily: 'roboto'
+    fontFamily: 'roboto',
+    flexDirection: 'row',
+    paddingVertical: 5,
+    borderColor: "#ccc",
+    borderBottomWidth: 1
   },
+
   productListItemContent: {
-    alignItems: "center",
-    padding: 10,
-    fontFamily: 'roboto'
+    fontFamily: 'roboto',
+    paddingVertical: 0,
+    paddingHorizontal: 8,
+    flex: 1,
+    flexDirection: 'column'
   },
 
   productListItemActions: {
     flexDirection: "row",
-    justifyContent: "space-between",
     alignItems: "center",
-    fontFamily: 'roboto'
+    fontFamily: 'roboto',
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    width: "50%",
+    paddingHorizontal: 5
   },
+
+  basketContainer: {
+    zIndex: 1, 
+    fontSize: 10, 
+    color: "#fff", 
+    position: 'absolute', 
+    top: -8, 
+    right: -8,
+    zIndex: 1, 
+    backgroundColor: Variables.primary, 
+    width: 20, 
+    height: 20, 
+    borderRadius: 10, 
+    flexDirection: 'row',  
+    alignItems: 'center', 
+    flex: 1, 
+    textAlign: 'center', 
+    alignContent: 'center'    
+  },
+
+  basket: {
+    color: Variables.white, 
+    fontSize: 10, 
+    textAlign: 'center', 
+    flex: 1
+  },
+
+  orderNow: {
+    padding: 10
+  }
 
 });
 
