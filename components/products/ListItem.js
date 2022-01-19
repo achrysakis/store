@@ -42,8 +42,6 @@ const ListItem = props => {
       </View>
 
     </TouchableWithoutFeedback>
-
-
   );
 }
 export default ListItem;

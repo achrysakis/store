@@ -1,5 +1,6 @@
 class Order {
-  constructor (cartProducts, totalPrice, date) {
+  constructor (id, cartProducts, totalPrice, date) {
+    this.id = id;
     this.cartProducts = cartProducts;
     this.totalPrice = totalPrice;
     this.date = date

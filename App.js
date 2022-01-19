@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import React, { useState, useEffect } from 'react';
 import * as Font from 'expo-font';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
@@ -7,6 +8,7 @@ import AppLoading from 'expo-app-loading';
 
 import productsReducer from './store/reducers/products';
 import cartReducer from './store/reducers/cart';
+import ordersReducer from './store/reducers/orders';
 
 import Navigator from './navigation/navigator';
 
@@ -21,7 +23,8 @@ i18n.locale = Localization.locale;
 const store = createStore(
   combineReducers({
     products: productsReducer,
-    cart: cartReducer
+    cart: cartReducer,
+    orders: ordersReducer
   })
 );
 
